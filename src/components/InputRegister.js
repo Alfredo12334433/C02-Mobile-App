@@ -1,34 +1,36 @@
 import {StyleSheet, View} from "react-native";
 import {Input} from "react-native-elements";
-import Icon from "react-native-vector-icons/Ionicons";
+
 import React, {useRef, useState} from "react";
 
-export default function InputForm() {
-
-
-
+export default function InputRegister() {
 
     return (
-
-
         <View style={styles.form}>
             <Input
-                placeholder="Correo electronico"
-                rightIcon={<Icon name="mail" size={20}/>}
+                label="Nombre"
+                labelStyle={styles.inputStyle}
                 inputContainerStyle={styles.inputContainerStyle}
-                containerStyle={styles.containerStyle1}
+                containerStyle={styles.containerStyle}
                 rightIconContainerStyle={styles.leftIconContainerStyle}
-                inputStyle={styles.inputStyle}
-                style={styles.divider}
 
             />
             <Input
-                placeholder="Contraseña"
-                rightIcon={<Icon name="eye" size={20}/>}
+                label="Correo electronico"
+                labelStyle={styles.inputStyle}
                 inputContainerStyle={styles.inputContainerStyle}
-                containerStyle={styles.containerStyle2}
+                containerStyle={styles.containerStyle}
                 rightIconContainerStyle={styles.leftIconContainerStyle}
-                inputStyle={styles.inputStyle}
+
+
+            />
+            <Input
+                label="Contraseña"
+                labelStyle={styles.inputStyle}
+                inputContainerStyle={styles.inputContainerStyle}
+                containerStyle={styles.containerStyle1}
+                rightIconContainerStyle={styles.leftIconContainerStyle}
+
 
             />
 
@@ -37,27 +39,27 @@ export default function InputForm() {
 }
 const styles = StyleSheet.create({
     form: {
-        marginTop: 20
+        marginTop: 35,
     },
     inputContainerStyle: {
-        borderRadius: 10,
+        borderRadius: 8,
         borderWidth: 1,
         // borderColor: '#a100e4'
 
     },
 
+    containerStyle: {
+        // borderWidth: 1,
+        paddingHorizontal: 0,
+        paddingVertical: 0,
+        height: 70,
+        marginBottom: 30
+    },
     containerStyle1: {
         // borderWidth: 1,
         paddingHorizontal: 0,
         paddingVertical: 0,
-        height: 60,
-        marginBottom: 30
-    },
-    containerStyle2: {
-        // borderWidth: 1,
-        paddingHorizontal: 0,
-        paddingVertical: 0,
-        height: 60,
+        height: 70,
         marginBottom: 5
     },
 
@@ -65,7 +67,8 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     inputStyle: {
-        paddingLeft: 10,
-        fontSize: 15
+        fontSize: 15,
+        paddingBottom: 5,
+        color: 'black'
     },
 })

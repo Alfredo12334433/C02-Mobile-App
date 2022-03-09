@@ -26,13 +26,15 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Login from "./src/screens/Login";
+import Register from "./src/screens/Register";
 
 
 const App: () => Node = () => {
 
 
     return (
-        <Login/>
+        // <Login/>
+        <Register/>
     );
 };
 

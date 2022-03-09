@@ -1,10 +1,9 @@
 import React from "react";
 import {Image, Text, View, StyleSheet,} from "react-native";
 import login_image from '../assets/login_image.png';
-import {Input, Button} from "react-native-elements";
-import Icon from "react-native-vector-icons/Ionicons"
+import { Button} from "react-native-elements";
 import {SafeAreaProvider} from 'react-native-safe-area-context'
-import InputForm from "../components/InputForm";
+import InputLogin from "../components/InputLogin";
 import HeaderInfo from "../components/HeaderInfo";
 
 export default function Login() {
@@ -17,8 +16,8 @@ export default function Login() {
                 <Image source={login_image} style={styles.image}/>
             </View>
             <View style={styles.info}>
-                <HeaderInfo/>
-                <InputForm/>
+                <HeaderInfo title='Inicia sesión' subtitle='¡Bivenenido de nuevo!'/>
+                <InputLogin/>
                 <View style={styles.forgetPassword}>
                     <Text style={styles.subtitle}>¿Olvidaste tú contraseña? </Text>
                 </View>
@@ -60,6 +59,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#a100e4',
         borderColor: 'white',
         borderRadius: 30,
+        paddingVertical: 10
     },
     containerStyle: {
         width: 250,

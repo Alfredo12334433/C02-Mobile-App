@@ -1,12 +1,12 @@
 import {StyleSheet, Text, View} from "react-native";
 import React from "react";
 
-export default function HeaderInfo() {
+export default function HeaderInfo({title, subtitle}) {
 
     return (
         <View>
-            <Text style={styles.title}>Inicia sesión</Text>
-            <Text style={styles.subtitle}>¡Bienvenido de nuevo!</Text>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.subtitle}>{subtitle}</Text>
         </View>
     )
 }

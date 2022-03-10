@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import type {Node} from 'react';
 import {
     SafeAreaView,
@@ -28,15 +29,17 @@ import {
 import Login from "./src/screens/Login";
 import Register from "./src/screens/Register";
 import Home from "./src/screens/Home";
+import Navigation from "./src/navigation/Navigation";
 
 
 const App: () => Node = () => {
 
 
     return (
-        // <Login/>
-        // <Register/>
-        <Home/>
+
+
+            <Navigation/>
+
     );
 };
 

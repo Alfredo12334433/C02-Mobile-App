@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
 
     container: {
         backgroundColor: '#FDF9FF',
-        marginHorizontal: 20,
-        marginTop: 35,
+        paddingHorizontal: 20,
+        paddingTop: 35,
     },
     terms: {
         flexDirection: 'row',

@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from "../screens/Home";
 import Register from "../screens/Register";
 import Login from "../screens/Login";
+import Place from "../screens/Place";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -32,7 +33,15 @@ export default function Navigation() {
                     title: "",
                     headerTransparent: true,
                     tabBarActiveTintColor: '#a100e4',
-                    tabBarLabel: "Profile",
+                    tabBarLabel: "Settings",
+                    tabBarIcon: ({color, size}) => <Ionicons name="settings-outline" color={color} size={size}/>,
+                }}/>
+
+                <Tab.Screen name="Place" component={Place} options={{
+                    title: "",
+                    headerTransparent: true,
+                    tabBarActiveTintColor: '#a100e4',
+                    tabBarLabel: "Place",
                     tabBarIcon: ({color, size}) => <Ionicons name="settings-outline" color={color} size={size}/>,
                 }}/>
 

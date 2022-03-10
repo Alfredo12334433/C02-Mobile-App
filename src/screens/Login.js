@@ -1,7 +1,7 @@
 import React from "react";
 import {Image, Text, View, StyleSheet, ScrollView,} from "react-native";
 import login_image from '../assets/login_image.png';
-import {Button} from "react-native-elements";
+import { Button} from "react-native-elements";
 import {SafeAreaProvider} from 'react-native-safe-area-context'
 import InputLogin from "../components/InputLogin";
 import HeaderInfo from "../components/HeaderInfo";
@@ -44,9 +44,9 @@ export default function Login() {
 
 const styles = StyleSheet.create({
 
-    container: {
-        backgroundColor: '#FDF9FF'
-    },
+  container:{
+      backgroundColor: '#FDF9FF'
+  },
     center: {
         alignItems: 'center',
 
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 0,
         marginTop: 20,
         shadowColor: '#000',
-        shadowOffset: {width: 0, height: 2},
+        shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.5,
         shadowRadius: 2,
         elevation: 6,

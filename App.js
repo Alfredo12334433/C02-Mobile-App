@@ -27,6 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import Login from "./src/screens/Login";
 import Register from "./src/screens/Register";
+import Home from "./src/screens/Home";
 
 
 const App: () => Node = () => {
@@ -34,7 +35,8 @@ const App: () => Node = () => {
 
     return (
         // <Login/>
-        <Register/>
+        // <Register/>
+        <Home/>
     );
 };
 

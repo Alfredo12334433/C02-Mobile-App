@@ -68,7 +68,12 @@ const styles = StyleSheet.create({
         width: 250,
         marginHorizontal: 0,
         marginTop: 20,
-    },
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+        elevation: 6,
+        borderRadius: 30},
     nestedText:{
         color: '#a100e4',
         fontWeight: 'bold'

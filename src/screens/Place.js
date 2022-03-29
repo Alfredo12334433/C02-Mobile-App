@@ -1,35 +1,64 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {SafeAreaProvider} from 'react-native-safe-area-context'
-import {Image, StyleSheet, Text, View} from "react-native";
+import {ActivityIndicator, FlatList, Image, StyleSheet, Text, View,} from "react-native";
 import place_image1 from '../assets/place_image1.png'
 import DropDownPicker from 'react-native-dropdown-picker';
 import {Button} from "react-native-elements";
+import {Picker} from '@react-native-picker/picker';
 
-export default function Place() {
+export default function Place () {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+    const [selectedValue, setSelectedValue] = useState(1);
+    const getUsuarios = async () => {
+     try {
+      const response = await fetch('http://192.168.1.69:8000/api/lugares');
+      const json = await response.json();
+      setData(json.data);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getUsuarios();
+  }, []);
+
+    const renderProductList = () => {
+    return data.map((data) => {
+      return <Picker.Item label={data.name} value={data.id} key={data.id} />
+    })
+  }
+
     return (
         <SafeAreaProvider style={styles.container}>
-            <View style={styles.center}>
-                <Text style={styles.title}>¿En qué lugar colocarás tú controlador de C02?</Text>
-                <Image source={place_image1} style={styles.image}/>
-                <DropDownPicker
-                    items={[
-                        {label: 'Item 1', value: 'Casa'},
-                        {label: 'Item 2', value: 'item2'},
-                    ]}
-                    textStyle={styles.textStyle}
-                    containerStyle={styles.containerStyle}
-                    style={styles.dropDown}
-                    onChangeItem={item => console.log(item.label, item.value)}
-                />
+            
+            
+      <View style={styles.center}>
+      <Text style={styles.title}>¿En qué lugar colocarás tú controlador de C02?</Text>
+      <Image source={place_image1} style={styles.image}/>
+      {isLoading ? <ActivityIndicator/> : (
 
-                <Button
+        <Picker
+       
+        selectedValue={selectedValue}
+        style={{ height: 50, width: 150 }}
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+        >
+             {renderProductList()}
+        </Picker>
+
+    
+      )}
+      
+      <Button
                     title="Ingresar"
                     buttonStyle={styles.buttonStyle}
                     containerStyle={styles.containerStyleButton}
                 />
-            </View>
-
+    </View>
         </SafeAreaProvider>
     )
 }

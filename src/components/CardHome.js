@@ -10,11 +10,11 @@ export default function CardHome() {
         <Card style={styles.card}>
         <View style={styles.row}>
             <Image source={home_img} style={styles.img}/>
-            <Switch
+            {/* <Switch
                 value={true}
                 color='#00DBA4'
-                style={styles.switch}
-            />
+                // style={styles.switch}
+            /> */}
         </View>
         <View style={styles.cardInfo}>
             <Text style={styles.title}>

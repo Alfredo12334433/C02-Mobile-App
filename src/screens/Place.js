@@ -13,7 +13,7 @@ export default function Place () {
     const [selectedValue, setSelectedValue] = useState(1);
     const getUsuarios = async () => {
      try {
-      const response = await fetch('http://192.168.1.69:8000/api/lugares');
+      const response = await fetch('http://192.168.100.188:8000/api/lugares');
       const json = await response.json();
       setData(json.data);
       setLoading(false);

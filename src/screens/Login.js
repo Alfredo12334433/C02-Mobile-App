@@ -1,12 +1,65 @@
-import React from "react";
-import {Image, Text, View, StyleSheet, ScrollView,} from "react-native";
+import {Image, Text, View, StyleSheet, ScrollView} from "react-native";
 import login_image from '../assets/login_image.png';
 import { Button} from "react-native-elements";
 import {SafeAreaProvider} from 'react-native-safe-area-context'
-import InputLogin from "../components/InputLogin";
 import HeaderInfo from "../components/HeaderInfo";
+import {TextInput} from 'react-native-paper';
+import Icon from "react-native-vector-icons/Ionicons";
+import React, {useState, useEffect} from "react";
+import {useFormik} from "formik";
+import * as Yup from "yup"
+import axios from "axios";
 
-export default function Login() {
+
+// import useStable from "react-native-web/dist/modules/useStable";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+export default function Login({navigation} ){
+
+    // const {navigation} = props;
+    const [error, setError] = useState("")
+    const formik = useFormik({
+        initialValues: initialValues(), validationSchema: Yup.object(validationSchema()),
+        onSubmit: (formInfo) => {         
+            axios.post('http://192.168.100.188:8000/api/login', formInfo)
+                .then(response => {
+                    console.log(response.data.data)
+                    saveData(response.data.data)
+
+                    navigation.navigate('Place')
+
+                })
+                .catch(error => {
+                    console.log(error.response.data)
+                    setError('Credenciales incorrectas')
+                });
+        }
+
+
+    })
+    useEffect ( ()=>{
+        readData()
+        
+    },[])
+
+    const saveData = async ({token}) => {
+        try {
+            await AsyncStorage.setItem('token', token)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    const readData = async () => {
+        try {
+            const userAge = await AsyncStorage.getItem('token')
+
+            if (userAge !== null) {
+                navigation.navigate('Place')
+            }
+        } catch (e) {
+
+        }
+    }
 
     return (
 
@@ -18,17 +71,42 @@ export default function Login() {
                 </View>
                 <View style={styles.info}>
                     <HeaderInfo title='Inicia sesión' subtitle='¡Bivenenido de nuevo!'/>
-                    <InputLogin/>
+                    <TextInput
+                placeholder="Correo electronico"
+                rightIcon={<Icon name="mail" size={20}/>}
+                inputContainerStyle={styles.inputContainerStyle}
+                containerStyle={styles.containerStyle1}
+                rightIconContainerStyle={styles.leftIconContainerStyle}
+                inputStyle={styles.inputStyle}
+                value={formik.values.email}
+                onChangeText={text => formik.setFieldValue('email', text)}
+                type='outlined'
+                style={styles.divider}
+
+            />
+<TextInput
+                placeholder="Contraseña"
+                rightIcon={<Icon name="eye" size={20}/>}
+                inputContainerStyle={styles.inputContainerStyle}
+                containerStyle={styles.containerStyle2}
+                rightIconContainerStyle={styles.leftIconContainerStyle}
+                value={formik.values.password}
+                onChangeText={text => formik.setFieldValue('password', text)}
+                inputStyle={styles.inputStyle}
+
+            />
+            
                     <View style={styles.forgetPassword}>
                         <Text style={styles.subtitle}>¿Olvidaste tú contraseña? </Text>
                     </View>
 
                     <View style={styles.center}>
-                        <Button
+                    <Button
+                            mode="contained" onPress={formik.handleSubmit}
                             title="Ingresar"
                             buttonStyle={styles.buttonStyle}
                             containerStyle={styles.containerStyle}
-                        />
+                />
                     </View>
                     <View style={styles.getAccount}>
                         <Text style={styles.subtitle}>¿Todavía no tienes una cuenta? <Text style={styles.innerText}>Obten
@@ -86,7 +164,21 @@ const styles = StyleSheet.create({
         color: '#a100e4',
         fontWeight: 'bold'
     }
-    
 
 
 });
+
+function initialValues() {
+    return {
+        email: 'admin@softui.com',
+        password: 'secret',
+
+    }}
+
+    function validationSchema() {
+        return {
+            password: Yup.string().required('Nombre obligatorio'),
+            email: Yup.string().required('Campo obligatorio').email('Email debe ser valido'),
+    
+        }
+    }

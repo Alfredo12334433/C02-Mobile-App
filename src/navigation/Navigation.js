@@ -15,7 +15,7 @@ export default function Navigation() {
     return (
         <NavigationContainer>
             <Tab.Navigator>
-                <Tab.Screen name="Profile" component={Login} options={{
+                <Tab.Screen name="Login" component={Login} options={{
                     title: "",
                     headerTransparent: true,
                     tabBarActiveTintColor: '#a100e4',
@@ -37,13 +37,13 @@ export default function Navigation() {
                     tabBarIcon: ({color, size}) => <Ionicons name="settings-outline" color={color} size={size}/>,
                 }}/>
 
-                <Tab.Screen name="Place" component={Place} options={{
+                 <Tab.Screen name="Place" component={Place} options={{
                     title: "",
                     headerTransparent: true,
                     tabBarActiveTintColor: '#a100e4',
                     tabBarLabel: "Place",
                     tabBarIcon: ({color, size}) => <Ionicons name="settings-outline" color={color} size={size}/>,
-                }}/>
+                }}/> 
 
             </Tab.Navigator>
         </NavigationContainer>

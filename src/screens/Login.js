@@ -14,19 +14,20 @@ import axios from "axios";
 // import useStable from "react-native-web/dist/modules/useStable";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function Login({navigation} ){
+export default function Login(props){
 
-    // const {navigation} = props;
+    const {navigation} = props;
     const [error, setError] = useState("")
     const formik = useFormik({
         initialValues: initialValues(), validationSchema: Yup.object(validationSchema()),
         onSubmit: (formInfo) => {         
             axios.post('http://192.168.100.188:8000/api/login', formInfo)
+            // axios.post('http://10.108.97.79:8000/api/login', formInfo)
                 .then(response => {
                     console.log(response.data.data)
                     saveData(response.data.data)
 
-                    navigation.navigate('Place')
+                    navigation.navigate('Home')
 
                 })
                 .catch(error => {
@@ -54,7 +55,7 @@ export default function Login({navigation} ){
             const userAge = await AsyncStorage.getItem('token')
 
             if (userAge !== null) {
-                navigation.navigate('Place')
+                navigation.navigate('Home')
             }
         } catch (e) {
 
@@ -109,7 +110,7 @@ export default function Login({navigation} ){
                 />
                     </View>
                     <View style={styles.getAccount}>
-                        <Text style={styles.subtitle}>¿Todavía no tienes una cuenta? <Text style={styles.innerText}>Obten
+                        <Text  style={styles.subtitle}>¿Todavía no tienes una cuenta? <Text style={styles.innerText}>Obten
                             una aquí</Text> </Text>
                     </View>
                 </View>

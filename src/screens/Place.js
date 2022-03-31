@@ -14,6 +14,7 @@ export default function Place () {
     const getUsuarios = async () => {
      try {
       const response = await fetch('http://192.168.100.188:8000/api/lugares');
+      // const response = await fetch('http://10.108.97.79:8000/api/lugares');
       const json = await response.json();
       setData(json.data);
       setLoading(false);

@@ -5,45 +5,72 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from "../screens/Home";
 import Register from "../screens/Register";
 import Login from "../screens/Login";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Main from '../screens/Main';
 import Place from '../screens/Place';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Drawer from "../navigation/Drawer"
 
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
 
     return (
+        
         <NavigationContainer>
             <Tab.Navigator>
                 <Tab.Screen name="Login" component={Login} options={{
                     title: "",
-                    headerTransparent: true,
-                    tabBarActiveTintColor: '#a100e4',
-                    tabBarLabel: "Profile",
+                  headerShown: false,
+          tabBarShowLabel: false,
+                    tabBarLabel: "Login",
+                    tabBarStyle: {backgroundColor: '#AD40AF'},
+                    tabBarInactiveTintColor: '#fff',
+                    tabBarActiveTintColor: 'yellow',
                     tabBarIcon: ({color, size}) => <Ionicons name="person-circle-outline" color={color} size={size}/>,
                 }}/>
+
                 <Tab.Screen name="Home" component={Home} options={{
                     title: "",
-                    headerTransparent: true,
-                    tabBarActiveTintColor: '#a100e4',
-                    tabBarLabel: "Profile",
-                    tabBarIcon: ({color, size}) => <Ionicons name="home-outline" color={color} size={size}/>,
+                  headerShown: false,
+                    tabBarShowLabel: false,
+                    tabBarLabel: "Home",
+                    tabBarStyle: {backgroundColor: '#AD40AF'},
+                    tabBarInactiveTintColor: '#fff',
+                    tabBarActiveTintColor: 'yellow',
+                    tabBarIcon: ({color, size}) => <Ionicons name="ios-home-outline" color={color} size={size}/>,
                 }}/>
-                <Tab.Screen name="Settings" component={Register} options={{
+                
+                <Tab.Screen name="Register" component={Register} options={{
                     title: "",
-                    headerTransparent: true,
-                    tabBarActiveTintColor: '#a100e4',
-                    tabBarLabel: "Settings",
-                    tabBarIcon: ({color, size}) => <Ionicons name="settings-outline" color={color} size={size}/>,
+                  headerShown: false,
+          tabBarShowLabel: false,
+                    tabBarLabel: "Register",
+                    tabBarStyle: {backgroundColor: '#AD40AF'},
+                    tabBarInactiveTintColor: '#fff',
+                    tabBarActiveTintColor: 'yellow',
+                    tabBarIcon: ({color, size}) => <Ionicons name="person-circle-outline" color={color} size={size}/>,
                 }}/>
+                  {/* <Tab.Screen name="Main" component={Main} options={{
+                    title: "",
+                  headerShown: false,
+          tabBarShowLabel: false,
+                    tabBarLabel: "Main",
+                    tabBarStyle: {backgroundColor: '#AD40AF'},
+                    tabBarInactiveTintColor: '#fff',
+                    tabBarActiveTintColor: 'yellow',
+                    tabBarIcon: ({color, size}) => <Ionicons name="adduser" color={color} size={size}/>,
+                }}/> */}
 
-                 <Tab.Screen name="Place" component={Place} options={{
+                 {/* <Tab.Screen name="Place" component={Place} options={{
                     title: "",
-                    headerTransparent: true,
-                    tabBarActiveTintColor: '#a100e4',
+                  headerShown: false,
+          tabBarShowLabel: false,
                     tabBarLabel: "Place",
+                    tabBarStyle: {backgroundColor: '#AD40AF'},
+                    tabBarInactiveTintColor: '#fff',
+                    tabBarActiveTintColor: 'yellow',
                     tabBarIcon: ({color, size}) => <Ionicons name="settings-outline" color={color} size={size}/>,
-                }}/> 
+                }}/>  */}
 
             </Tab.Navigator>
         </NavigationContainer>

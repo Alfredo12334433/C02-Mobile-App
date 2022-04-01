@@ -1,18 +1,25 @@
 import React from "react";
 import {SafeAreaProvider} from 'react-native-safe-area-context'
-import {StyleSheet, View, Text, Image} from "react-native";
+import {StyleSheet, View, Text, Image,TouchableWithoutFeedback,TouchableHighlight} from "react-native";
 import HeaderInfo from "../components/HeaderInfo";
 import {Card, Switch} from 'react-native-paper';
 import home_img from '../assets/home_image.png'
 import CardHome from "../components/CardHome";
 
-export default function Home() {
+export default function Home(props) {
+    const {navigation} = props;
+    console.log(navigation);
 
+    const onPress = () => {
+        navigation.navigate('Login')
+      };
     return (
         <SafeAreaProvider style={styles.container}>
             <HeaderInfo title='¡Bienvenido a casa Erick!' subtitle='Controla tus dispositivos desde aquí.'/>
             <View style={styles.center}>
-               <CardHome/>
+            <TouchableHighlight onPress={onPress} underlayColor="white">
+               <CardHome />
+            </TouchableHighlight>
             </View>
         </SafeAreaProvider>
     )

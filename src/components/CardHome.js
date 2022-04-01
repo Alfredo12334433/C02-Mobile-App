@@ -5,9 +5,11 @@ import {Card, Switch} from "react-native-paper";
 
 
 export default function CardHome() {
-
+    
     return (
-        <Card style={styles.card}>
+     
+
+<Card style={styles.card}>
         <View style={styles.row}>
             <Image source={home_img} style={styles.img}/>
             {/* <Switch
@@ -25,6 +27,9 @@ export default function CardHome() {
             </Text>
         </View>
     </Card>
+
+
+        
     )
 }
 

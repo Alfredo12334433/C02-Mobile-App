@@ -8,9 +8,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import React, {useState, useEffect} from "react";
 import {useFormik} from "formik";
 import * as Yup from "yup"
-import axios from "axios";
-
-
+import axios from "axios"
 // import useStable from "react-native-web/dist/modules/useStable";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -21,8 +19,8 @@ export default function Login(props){
     const formik = useFormik({
         initialValues: initialValues(), validationSchema: Yup.object(validationSchema()),
         onSubmit: (formInfo) => {         
-            axios.post('http://192.168.100.188:8000/api/login', formInfo)
-            // axios.post('http://10.108.97.79:8000/api/login', formInfo)
+            // axios.post('http://192.168.100.188:8000/api/login', formInfo)
+            axios.post('http://10.108.97.79:8000/api/login', formInfo)
                 .then(response => {
                     console.log(response.data.data)
                     saveData(response.data.data)

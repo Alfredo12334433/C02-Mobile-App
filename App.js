@@ -31,6 +31,7 @@ import Login from "./src/screens/Login";
 import Register from "./src/screens/Register";
 import Home from "./src/screens/Home";
 import Navigation from "./src/navigation/Navigation";
+
 // import Drawer from "./src/navigation/Drawer"
 
 const App: () => Node = () => {

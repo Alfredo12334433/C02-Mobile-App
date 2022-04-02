@@ -19,7 +19,7 @@ export default function Register(props) {
         
         onSubmit: (formInfo) => { 
             // axios.post('http://192.168.100.188:8000/api/crear', formInfo)        
-            axios.post('http://10.108.97.79:8000/api/crear', formInfo)
+            axios.post('http://192.168.1.75:8000/api/crear', formInfo)
                 .then(response => {
                     saveData(response.data.data)
                     navigation.navigate('Home')

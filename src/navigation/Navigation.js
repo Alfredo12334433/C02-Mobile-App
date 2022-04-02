@@ -48,9 +48,9 @@ export default function Navigation() {
                     tabBarStyle: {backgroundColor: '#AD40AF'},
                     tabBarInactiveTintColor: '#fff',
                     tabBarActiveTintColor: 'yellow',
-                    tabBarIcon: ({color, size}) => <Ionicons name="person-circle-outline" color={color} size={size}/>,
+                    tabBarIcon: ({color, size}) => <Ionicons name="ios-person-add-sharp" color={color} size={size}/>,
                 }}/>
-                  {/* <Tab.Screen name="Main" component={Main} options={{
+                   <Tab.Screen name="Main" component={Main} options={{
                     title: "",
                   headerShown: false,
           tabBarShowLabel: false,
@@ -58,8 +58,8 @@ export default function Navigation() {
                     tabBarStyle: {backgroundColor: '#AD40AF'},
                     tabBarInactiveTintColor: '#fff',
                     tabBarActiveTintColor: 'yellow',
-                    tabBarIcon: ({color, size}) => <Ionicons name="adduser" color={color} size={size}/>,
-                }}/> */}
+                    tabBarIcon: ({color, size}) => <Ionicons name="bar-chart" color={color} size={size}/>,
+                }}/> 
 
                  {/* <Tab.Screen name="Place" component={Place} options={{
                     title: "",

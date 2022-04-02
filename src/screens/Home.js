@@ -11,7 +11,7 @@ export default function Home(props) {
     console.log(navigation);
 
     const onPress = () => {
-        navigation.navigate('Login')
+        navigation.navigate('Main')
       };
     return (
         <SafeAreaProvider style={styles.container}>
@@ -36,5 +36,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 40
     },
+    
 
 });

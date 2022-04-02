@@ -20,7 +20,9 @@ export default function Login(props){
         initialValues: initialValues(), validationSchema: Yup.object(validationSchema()),
         onSubmit: (formInfo) => {         
             // axios.post('http://192.168.100.188:8000/api/login', formInfo)
-            axios.post('http://10.108.97.79:8000/api/login', formInfo)
+            // axios.post('http://10.108.97.79:8000/api/login', formInfo)
+            axios.post('http:// 192.168.1.75:8000/api/login', formInfo)
+           
                 .then(response => {
                     console.log(response.data.data)
                     saveData(response.data.data)
@@ -59,9 +61,11 @@ export default function Login(props){
 
         }
     }
+    const onPress = () => {
+        navigation.navigate('Register')
+      };
 
     return (
-
 
         <SafeAreaProvider style={styles.container}>
             <ScrollView>
@@ -108,8 +112,20 @@ export default function Login(props){
                 />
                     </View>
                     <View style={styles.getAccount}>
-                        <Text  style={styles.subtitle}>¿Todavía no tienes una cuenta? <Text style={styles.innerText}>Obten
-                            una aquí</Text> </Text>
+                        <Text  style={styles.subtitle}>¿Todavía no tienes una cuenta?</Text>
+                        <Button
+                                onPress={onPress} 
+                            // onPress={() => {
+                                
+                            // //   alert('Ir a la humedad');
+                            //    }}
+                             title="Obten una aquí"    
+                            buttonStyle={styles.buttonStyle}
+                            containerStyle={styles.containerStyle}
+                          />
+
+                        {/* <Text style={styles.innerText}>Obten
+                            una aquí</Text>  */}
                     </View>
                 </View>
             </ScrollView>
